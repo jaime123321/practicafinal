@@ -22,10 +22,12 @@ public class RegisterServlet extends HttpServlet {
 			throws ServletException, IOException {
 		response.setContentType("text/html;charset=UTF-8");
 		try {
+			//asignamos los datos que escribimos en el registro a las variable
 			String fname = request.getParameter("fname");
 			String lname = request.getParameter("lname");
 			String email = request.getParameter("email");
 			String pword = request.getParameter("pword");
+			// DigestUtils.md5Hex es para encriptar
 			String newPword = DigestUtils.md5Hex(pword);
 
 			// generamos el codigo hash
@@ -34,6 +36,7 @@ public class RegisterServlet extends HttpServlet {
 			random.nextInt(999999);
 			myHash = DigestUtils.md5Hex("" + random);
 
+			
 			RegisterBean rb = new RegisterBean();
 			rb.setFname(fname);
 			rb.setLname(lname);

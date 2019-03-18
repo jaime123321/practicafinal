@@ -8,7 +8,7 @@ public class MyConnection {
 
 	public static Connection getConnection() {
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
+			Class.forName("com.mysql.cj.jdbc.Driver");
 			con = DriverManager.getConnection("jdbc:mysql://localhost::3306/email_validation", "root", "practicas");
 		} catch (Exception ex) {
 			System.out.println("From MyConnection Class" + ex);
